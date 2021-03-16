@@ -1,0 +1,52 @@
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div></div>
+        <button ng-click="page='admin'">Admin</button>
+        <button ng-click="page='emp'">Employee</button>
+
+    </div>
+    <div ng-show="page=='admin'">
+        Admin View
+    </div>
+    <div ng-show="page=='emp'">
+   <label>Employee Name : &nbsp;&nbsp;</label> First Name:<input type="text" ng-model="firstaddMe">
+        LastName Name:<input type="text" ng-model="lastaddMe">
+    <button ng-click="addEmployee()">Add</button>
+    <br>
+    <br>
+    <br>
+
+        Search Name<input type="text" ng-model="search">
+
+        <br>
+        <br>
+        From <input type="date" ng-model="Fromdate">
+        To <input type="date"  ng-model="Todate">
+        <button data-ng-click="getData()">Go</button>
+<br><br>
+    <table border="1">
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Date</th>
+        </tr>
+        <tr ng-repeat="x in EmpData |filter :search">
+            <td>
+                {{$index+1}}
+            </td>
+            <td>{{x.first+" "+x.last}}</td>
+            <td>{{x.date}}</td>
+        </tr>
+    </table>
+
+
+</div>
+
+</div>
+
+
